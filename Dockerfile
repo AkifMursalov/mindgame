@@ -18,5 +18,5 @@ EXPOSE 8080
 
 RUN npx prisma generate
 
-CMD [ "npm", "start" ]
+CMD [ "node", "dist/main" ]
 
