@@ -1,8 +1,8 @@
 version: '3.8'
 services:
   app:
-    container_name: nestjs
-    image: nestjs
+    container_name: test
+    image: test
     build: 
       context: .
       dockerfile: Dockerfile
