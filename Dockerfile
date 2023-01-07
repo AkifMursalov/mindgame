@@ -18,8 +18,4 @@ EXPOSE 8080
 
 RUN npx prisma generate
 
-# run docker
-
-RUN docker-compose up -d
-
 CMD [ "node", "dist/main" ]
