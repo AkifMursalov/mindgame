@@ -10,7 +10,7 @@ export class PrismaService
             super({
                 datasources: {
                     db: {
-                        url: 'postgresql://doadmin:AVNS_NOxoNRHrhgFZXFI_24m@db-postgresql-nyc1-57458-do-user-13200332-0.b.db.ondigitalocean.com:25060/defaultdb?sslmode=require',
+                        url: 'postgresql://postgres:123456@db:5432/nestjs?schema=public',
             },
         },
     });
