@@ -34,4 +34,4 @@ jobs:
         command: 'compute droplet create'
         arguments: '--name test --region nyc3 --image ubuntu-20-04-x64 --size s-1vcpu-1gb --ssh-keys 12:34:56:78:90 --wait'
       env:
-        DIGITALOCEAN_ACCESS_TOKEN: ${{ secrets.dop_v1_ae03ee6bb14253815931477182d3fafbfca17a7391a884ae8b80a68af8ba67d8 }}
+        DIGITALOCEAN_ACCESS_TOKEN: ${{ dop_v1_43429ac0713ca96af1eef58f28ee91643ac051e01ee9bd7bc23624b38c0fa64a }}
