@@ -2,8 +2,9 @@ name: Node.js CI/CD
 
 on:
   push:
-    branches:
-      - main
+    branches: [ master ]
+  pull_request:
+    branches: [ master ] 
 
 jobs:
   build:
@@ -21,17 +22,3 @@ jobs:
       run: npm run build
     - name: Test
       run: npm test
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Deploy to DigitalOcean
-      uses: digitalocean/action-doctl@v1
-      with:
-        command: 'compute droplet create'
-        arguments: '--name test --region nyc3 --image ubuntu-20-04-x64 --size s-1vcpu-1gb --ssh-keys 12:34:56:78:90 --wait'
-      env:
-        DIGITALOCEAN_ACCESS_TOKEN: dop_v1_43429ac0713ca96af1eef58f28ee91643ac051e01ee9bd7bc23624b38c0fa64a
