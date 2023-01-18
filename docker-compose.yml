@@ -1,33 +1,14 @@
 version: '3.8'
 services:
-  db:
-    image: postgres:12.9
-    ports:
-      - 5432:5432
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 123456
-      POSTGRES_DB: nestjs
-    
-    volumes:
-      - db_data:/var/lib/postgresql/data
-    networks:
-      - nestjs
-    restart: always
-  
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8000:8080
   app:
-    container_name: test
-    image: test
+    container_name: nestjs
+    image: nestjs
     build: 
       context: .
       dockerfile: Dockerfile
+    command: npm run start:dev 
     ports:
-      - 8080:8080
+      - 3000:3000
     networks:
       - nestjs
     volumes:
@@ -40,6 +21,26 @@ services:
     restart: always
 
 
+  db:
+    image: postgres:12.9
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: nestjs
+
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - nestjs
+    restart: always
+  
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8000:8080
 
 networks:
   nestjs:
@@ -47,3 +48,5 @@ networks:
 
 volumes:
   db_data:
+
+

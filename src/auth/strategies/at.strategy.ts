@@ -1,6 +1,5 @@
 import { Injectable } from "@nestjs/common";
 import { PassportStrategy } from "@nestjs/passport";
-import { ApiProperty } from "@nestjs/swagger";
 import { ExtractJwt, Strategy } from "passport-jwt";
 
 type JwtPayload = {
@@ -16,9 +15,6 @@ export class AtStrategy extends PassportStrategy(Strategy, 'jwt'){
 
         });
     }
-    @ApiProperty({
-        example: 'access-token'
-    })
     validate(payload: JwtPayload){
          return payload;
 
